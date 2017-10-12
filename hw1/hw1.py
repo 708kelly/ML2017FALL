@@ -12,11 +12,12 @@ import random
 import math
 import sys
 
-best_w = np.load('model.npy')
+best_w = np.load('hw1.npy')
 
 test_x = []
 n_row = 0
-text = open(sys.argv[1] ,"r")
+path = sys.srgv[1]
+text = open(path ,"r")
 row = csv.reader(text , delimiter= ",")
         
 for r in row:
