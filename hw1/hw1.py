@@ -12,11 +12,13 @@ import random
 import math
 import sys
 
+var_list =[8,9]
 best_w = np.load('hw1.npy')
+time_range = 9
 
 test_x = []
 n_row = 0
-path = sys.srgv[1]
+path = sys.argv[1]
 text = open(path ,"r")
 row = csv.reader(text , delimiter= ",")
         
