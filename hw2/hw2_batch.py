@@ -19,7 +19,7 @@ import numpy as np
 import random
 import math
 import sys
-#記得要換掉呵呵啊ＱＡＱ
+
 #import os
 
 
@@ -27,8 +27,6 @@ import sys
 def sigmoid(x):
     res = 1 / (1 + np.exp(-x))
     return np.clip(res, 1e-8, 1-(1e-8))
-#os.chdir("/Users/kelly/Documents/大四/機器學習/HW2")
-# 每一個維度儲存一種污染物的資訊
 
 def _shuffle(X, Y):
     randomize = np.arange(len(X))
@@ -154,7 +152,7 @@ for k in range(k_num):
             cross_entropy = -1 * (np.dot(np.squeeze(Y), np.log(y_)) + np.dot((1 - np.squeeze(Y)), np.log(1 - y_)))
             total_loss += cross_entropy
 
-            w_grad = np.mean(-1 * X * (np.squeeze(Y) - y_).reshape((batch_size,1)), axis=0)+lamda*w
+            w_grad = np.mean(-1 * X * (np.squeeze(Y) - y_).reshape((batch_size,1)), axis=0)
             #s_gra += w_grad**2
             #ada = np.sqrt(s_gra)
             #b_grad = np.mean(-1 * (np.squeeze(Y) - y_))
