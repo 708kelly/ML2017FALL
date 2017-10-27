@@ -18,24 +18,24 @@ import numpy as np
 #from numpy.linalg import inv
 import random
 import math
-#import sys
+import sys
 #記得要換掉呵呵啊ＱＡＱ
-import os
+#import os
 
 
 
 def sigmoid(x):
     res = 1 / (1 + np.exp(-x))
     return np.clip(res, 1e-8, 1-(1e-8))
-os.chdir("/Users/kelly/Documents/大四/機器學習/HW2")
+#os.chdir("/Users/kelly/Documents/大四/機器學習/HW2")
 # 每一個維度儲存一種污染物的資訊
 
 def _shuffle(X, Y):
     randomize = np.arange(len(X))
     np.random.shuffle(randomize)
     return (X[randomize], Y[randomize])
-
-text = open('x_train', 'r', encoding='big5')
+path_x = sys.argv[1]
+text = open(path_x, 'r', encoding='big5')
 lines=text.readlines()
 content = [x.strip() for x in lines]
 x=[]
@@ -52,7 +52,7 @@ text.close()
 
 
 x = np.array(x)
-
+path_y = sys.argv[2]
 text_y = open('y_train', 'r', encoding='big5')
 #lines = text.read().split('\n,')
 y_lines=text_y.readlines()
@@ -82,12 +82,9 @@ std = np.std(x,axis=0)
 x = ((x - mean)/std)
 
 
-
-
+# Train 
+"""
 x = np.concatenate((np.ones((x.shape[0],1)),x), axis=1)
-
-
-
 
 ## k-fold
 k_part = []
@@ -184,12 +181,15 @@ print(w_error[order[0][0]])
 
 # save model
 np.save('model_hw2_8.npy',best_w)
+"""
+
 # read model
-#best_w = np.load('model_hw2_2.npy')
+best_w = np.load('model_hw2_6.npy')
 
 test_x = []
 n_row = 0
-text = open('X_test' ,"r")
+path_test = sys.argv[3]
+text = open(path_test ,"r")
         
 lines=text.readlines()
 content = [x.strip() for x in lines]
@@ -235,7 +235,7 @@ for i in range(len(test_x)):
     ans.append([str(i+1),answer])
     #ans[i].append(a)
 
-filename = "result/allvariable_8.csv"
+filename = sys.argv[4]
 text = open(filename, "w+")
 s = csv.writer(text,delimiter=',',lineterminator='\n')
 s.writerow(["id","label"])
