@@ -58,7 +58,7 @@ datagen = ImageDataGenerator(
 # In[19]:
 
 #os.chdir("/Users/kelly/Documents/大四/機器學習/Hw3") 
-os.chdir("/Users/kelly/Documents/大四/機器學習/Hw3") 
+#os.chdir("/Users/kelly/Documents/大四/機器學習/Hw3") 
 #path = os.environ.get("GRAPE_DATASET_DIR")
 # Load Data
 x_data = []
