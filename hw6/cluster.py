@@ -52,7 +52,7 @@ x_train.shape, x_val.shape
 
 # train autoencoder
 autoencoder.fit(X, X,
-                epochs=1,
+                epochs=100,
                 batch_size=128,
                 shuffle=True)
 autoencoder.save('autoencoder.h5')
