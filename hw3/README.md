@@ -1,6 +1,6 @@
 # HW3 Image Sentiment Classification
 > 本次作業為網路上收集到的人臉表情資料，經過特殊處理，每張圖片，均是人臉部份佔大部分
-![表情](https://imgur.com/kMXR9Yo)
+![表情](https://imgur.com/kMXR9Yo.jpg)
 
 > 使用CNN DNN實作Model
 
