@@ -8,5 +8,7 @@ This course is Machine Learning from National Taiwan University Department of El
 * **Unsupervised learning & dimension reduction:** using PCA, word2vec,clustering
 * **ASR+translation:** using seq2seq 
 
+## course link
+<http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17_2.html>
 
 
