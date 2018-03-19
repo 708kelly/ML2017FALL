@@ -55,11 +55,7 @@ datagen = ImageDataGenerator(
         horizontal_flip=True,
         fill_mode='nearest')
 
-# In[19]:
 
-#os.chdir("/Users/kelly/Documents/大四/機器學習/Hw3") 
-#os.chdir("/Users/kelly/Documents/大四/機器學習/Hw3") 
-#path = os.environ.get("GRAPE_DATASET_DIR")
 # Load Data
 x_data = []
 y_data = []
@@ -99,17 +95,9 @@ y_data = np_utils.to_categorical(y_data)
 num_classes = y_data.shape[1]
 print("Data normalized and hot encoded.")
 
-#np.save('x_data.npy',x_data)
-#np.save('y_data.npy',y_data)
-
-#縮減
-#x_data = x_data[0:5000,]
-#y_data = y_data[0:5000,]
-#x_data = np.concatenate((x_data,x_data),axis = 0)
-#y_data = np.concatenate((y_data,y_data),axis = 0)
 
 
-# In[20]:
+
 def build_model(epoch):
 
     '''
@@ -162,30 +150,7 @@ def build_model(epoch):
     return model
     
     
-"""
-model = Sequential()
-model.add(Convolution2D(32, 3, 3, input_shape=(48, 48, 1), border_mode='same', activation='relu', W_constraint=maxnorm(3),kernel_regularizer=regularizers.l2(0.00001)))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
 
-model.add(Convolution2D(32, 3, 3, activation='relu', border_mode='same', W_constraint=maxnorm(3),kernel_regularizer=regularizers.l2(0.00001)))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-
-model.add(Flatten())
-model.add(Dense(512, activation='relu', W_constraint=maxnorm(3),kernel_regularizer=regularizers.l2(0.0001)))
-model.add(Dropout(0.5))
-model.add(Dense(num_classes, activation='softmax',kernel_regularizer=regularizers.l2(0.01)))
-# Compile model
-epochs = 100  # >>> should be 25+
-lrate = 0.01
-decay = lrate/epochs
-#sgd = SGD(lr=lrate, momentum=0.9, decay=decay, nesterov=False)
-adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=decay)
-model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
-print(model.summary())
-
-"""
-# In[21]:
 ## k-fold
 k_part = []
 k_num = 10
@@ -283,109 +248,4 @@ for k in range(2):
 order = sorted(w_error.items(), key = lambda t : t[1],reverse=True)
 print("Best-k : ",(order[0][0]+1),"/ score : ",order[0][1])
 print(order)    
-
-
-# In[22]:
-"""
-    model.fit(X_train, y_train, validation_data=(X_val, y_val), nb_epoch=epochs, batch_size=64)
-    # Final evaluation of the model
-    scores = model.evaluate(X_val, y_val, verbose=0)
-    print("Accuracy: %.2f%%" % (scores[1]*100))
-    
-    model.save(os.path.join('model/hw3.h5'))
-    
-    # model = load_model('my_model.h5')
-    print("done")
-"""
-"""
-test_x = []
-text = open('test.csv', 'r', encoding='big5') 
-row = csv.reader(text , delimiter=",")
-n_line = 0
-for l in row:
-    if n_line != 0  :
-        short = l[1].split(' ')
-        short = [float(i) for i in short]
-        test_x.append(short)
-    # 第0列沒有資訊
-    
-    n_line = n_line+1
-text.close()
-
-test_x = np.array(test_x)
-test_x = test_x.reshape(7178,48,48,1)
-test_x = np.array(test_x).astype('float32')
-test_x = test_x / 255.0
-
-
-# Final evaluation of the model
-result = model.predict_classes(test_x, verbose=1)
-
-filename = "result/hw3.csv"
-text = open(filename, "w+")
-s = csv.writer(text,delimiter=',',lineterminator='\n')
-s.writerow(["id","label"])
-
-for i, v in  enumerate(result):
-    s.writerow([(i),int(v)])
-text.close()
-
-result
-# In[7]:
-
-result
-
-
-# In[13]:
-
-y_train
-
-
-# In[14]:
-
-result.shape
-
-
-# In[19]:
-
-result = model.predict_classes(test_x, verbose=1)
-
-
-# In[21]:
-
-result.shape
-
-
-# In[8]:
-
-filename = "result/hw3.csv"
-text = open(filename, "w+")
-s = csv.writer(text,delimiter=',',lineterminator='\n')
-s.writerow(["id","label"])
-
-for i, v in  enumerate(result):
-    s.writerow([(i),int(v)])
-text.close()
-
-
-# In[11]:
-
-model.save("hw3.h5")
-
-
-# In[14]:
-
-from keras.models import load_model
-a = load_model('hw3.h5')
-
-
-# In[15]:
-
-a.summary()
-
-
-# In[ ]:
-
-"""
-
 
