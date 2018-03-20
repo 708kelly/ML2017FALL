@@ -1,4 +1,4 @@
-#reated on Wed Nov 29 23:24:04 2017
+#Created on Wed Nov 29 23:24:04 2017
 
 #@author: kelly
 import os
@@ -97,27 +97,7 @@ for l in content:
 text.close()
 x = np.array(x)
 
-"""
-# test_data
-text = open('data/testing_data.txt', 'r', encoding='UTF-8') 
-test_data = []
-lines=text.readlines()
-content = [x.strip() for x in lines]
-#x=[]
-n_line = 0
-for l in content:
-    if n_line != 0  :
-        short = l.split(',')
-        #y = float(short[0])
-        #test_label.append(y)
-        a = short[1].strip()
-        #x = a.split(' ')
-        test_data.append(a)
-    # 第0列沒有資訊
-    n_line = n_line+1
-text.close()
-#x_data = np.array(x_data)
-"""
+
 # Unlabeled Data
 path_2 = sys.argv[2]
 text = open(path_2, 'r', encoding='UTF-8') 
@@ -141,17 +121,7 @@ text.close()
 
 
 MAX_NB_WORDS = 20000
-"""
-# 外面一定要有[]，不然會切失敗
-tokenizer = Tokenizer(num_words=MAX_NB_WORDS,split = ' ',filters='!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n')
-tokenizer.fit_on_texts(x)
-tokenizer.fit_on_texts(data)
-tokenizer.fit_on_texts(test_data)
 
-# save tokenizer
-path = 'token.pkl'
-pk.dump(tokenizer, open(path, 'wb'))
-"""
 # load tokenizer
 path = 'token.pkl'
 tokenizer = pk.load(open(path, 'rb'))
@@ -175,20 +145,7 @@ print('Found %s unique tokens.' % len(word_index))
 
 #data = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
 
-"""
-# split the data into a training set and a validation set
-indices = np.arange(data.shape[0])
-np.random.shuffle(indices)
-data = data[indices]
-labels = labels[indices]
-nb_validation_samples = int(VALIDATION_SPLIT * data.shape[0])
 
-x_train = data[:-nb_validation_samples]
-y_train = labels[:-nb_validation_samples]
-x_val = data[-nb_validation_samples:]
-y_val = labels[-nb_validation_samples:]
-
-"""
 
     
     
