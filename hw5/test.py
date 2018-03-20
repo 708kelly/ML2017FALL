@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 18 20:04:27 2017
-
-@author: kelly
-"""
-
 # test 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -15,13 +7,7 @@ Created on Sat Dec 16 12:20:58 2017
 @author: kelly
 """
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 12 23:31:31 2017
 
-@author: kelly
-"""
 
 import csv
 import os
